@@ -4,8 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Hazik Khalid</title>
+    <link rel="stylesheet" href="../Style/style.css">
 </head>
 <body>
-    <h3>Soon............!</h3>
+    <main>
+        <h1 id="index-name">Blog</h1>
+        <p style="color: var(--caption-color); margin-bottom: 2rem;">
+            Thoughts, notes, experiments, and everything I'm exploring.
+        </p>
+
+        <section id="blog-list">
+            <!-- Blog posts will load here automatically -->
+        </section>
+    </main>
+
+    <script>
+        // Add your post files here
+        const posts = [
+            {
+                title: "My First Blog Post",
+                file: "../Posts/first-post.html",
+                date: "2025-01-01"
+            },
+            {
+                title: "Why I Love Logic",
+                file: "../Posts/logic-love.html",
+                date: "2025-01-10"
+            }
+        ];
+
+        const container = document.getElementById("blog-list");
+
+        posts.forEach(post => {
+            const el = document.createElement("article");
+            el.style.padding = "1rem 0";
+            el.innerHTML = `
+                <h2 style="color: var(--name-color); margin-bottom: 0.3rem;">
+                    <a href="${post.file}" style="text-decoration: none; color: var(--link-color);">${post.title}</a>
+                </h2>
+                <p style="color: var(--caption-color); font-size: 0.9rem;">
+                    ${post.date}
+                </p>
+            `;
+            container.appendChild(el);
+        });
+    </script>
 </body>
 </html>
